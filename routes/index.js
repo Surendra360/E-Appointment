@@ -29,6 +29,7 @@ router.get("/delete/:id", async(req,res,next)=>{
   try {
     await userModel.findByIdAndDelete(req.params.id)
     res.redirect("/");
+    console.log("deleted");
   } catch (error) {
     console.log(error.message);
   }
