@@ -2,9 +2,10 @@
     <%-include("./partials/nav") %>
 
         <div class="w-full h-[100vh] flex flex-col gap-10 items-center justify-top mt-10 bg-zink-800">
-            <h1 class="text-8xl font-semibold">PROFILE</h1>
-            <div>
-                <span class="text-5xl font-semibold text-purple-500 px-5">👋 Hello, <span class="text-black ">' <%=user.fullname%> '</span></span>
+            <h1 class="text-4xl font-semibold">PROFILE</h1>
+            <div class="flex flex-col gap-3 justify-center ">
+                <span class="text-5xl font-semibold text-purple-500 border border-gray-400 py-2 my-5 px-10 bg-gray-300 shadow-md">👋 Hello, <span class="text-black ">' <%=user.fullname%> '</span></span> 
+                <span class="text-2xl font-semibold">Appointments:  <span class=" px-3 text-2xl font-bold"><%=user.appointments.length%></span> <a class="ml-5 px-3 py-1 border border-gray-400 rounded hover:bg-green-600 text-xl font-semibold hover:text-white duration-400" href="/allApointments">View</a></span>
                 <h1 class="text-4xl my-5"> Following is your detailes</h1>
                 <h1 class="text-2xl mb-2 border px-4 py-1">Fullname: <%=user.fullname%></h1>
                 <h1 class="text-2xl mb-2 border px-4 py-1">Username: <%=user.username%></h1>

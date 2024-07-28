@@ -1,0 +1,20 @@
+<%-include("./partials/header") %>
+<%-include("./partials/nav") %>
+
+<div class="w-full h-[100vh] flex  flex-col gap-10 items-center justify-start mt-10 bg-zink-800">
+  <h1 class="text-4xl font-semibold">All APPOINTMENTS</h1>
+  
+  <ol class="list-decimal w-[70vw] flex flex-col flex-wrap items-center gap-10 mt-5 bg-gray-200 px-5 py-10">
+    <% allApointments.appointments.forEach((app)=>{ %>
+      <li class="w-full flex flex-wrap items-center justify-between border-b border-gray-400 px-3 py-1">
+        <span class="w-[30%]"><%=app.fullname%></span>
+        <span class="w-[25%]"><%=app.age%></span>
+        <span class="w-[25%]"><%=app.sedule%></span> 
+        <span class="w-[15%] flex justify-between"><p class="text-green-600" href="#"><%=app.status%> *</p> <a class=" text-white bg-red-600 hover:bg-red-700 px-2 rounded" href="#">Cancle</a></span> 
+      </li>
+    <% }) %>      
+  </ol>
+
+</div>
+
+<%-include("./partials/footer") %>

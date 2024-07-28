@@ -12,14 +12,10 @@ const userModel = new mongoose.Schema({
         enum:["admin","user"],
         default:"user",
     },
-    user:{
+    appointments:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"user"
-    },
-    userId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"user"
-    },
+        ref:"appointment"
+    }],
 
 },{timestamps:true})
 

@@ -1,0 +1,66 @@
+<%-include("./partials/header") %>
+    <%-include("./partials/nav") %>
+
+        <div class="w-full h-[100vh] mt-32 flex flex-col gap-10 items-center justify-center bg-zink-800 px-30">
+            <h1 class="text-4xl border-b border-black py-3 font-semibold">SEDULE APPOINTMENT NOW</h1>
+            <div class="flex flex-col items-center justify-center pb-10">
+                <form action="/appointment" method="post">
+                    <div class="w-[30vw] py-6 px-10">
+                        <div class="space-y-4 mt-6">
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Fullname</label>
+                                <input name="fullname" type="text" placeholder="abc"
+                                    class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Age</label>
+                                <input name="age" type="text" placeholder="18"
+                                class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+                            
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Email</label>
+                                <input name="email" type="text" placeholder="email"
+                                class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Gender</label>
+                                <input name="gender" type="text" placeholder="male"
+                                class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Phone</label>
+                                <input name="phone" type="text" placeholder="Mobile Number"
+                                    class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Identy Proof Aadhar number</label>
+                                <input name="aadhar" type="text" placeholder="81354789545"
+                                    class="w-full px-4 py-2 bg-gray-50" />
+                            </div>
+
+                            <div class="w-full flex flex-col gap-2">
+                                <label>Select Sedule</label>
+                                <input name="sedule" type="text" placeholder="Select any one"
+                                    class="w-full px-4 py-2 bg-gray-50" />
+                                
+                            </div>
+
+        
+                        </div>
+                        <button
+                        class="w-full mt-10 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md font-semibold tracking-tight mb-3">BOOK</button>
+                        
+                    </div>
+                    
+                </form>
+                <a href="/"><button class="w-[25vw] bg-red-600 hover:bg-red-700 text-white py-2 rounded-md font-semibold tracking-tight mb-3">CANCLE</button></a>
+            </div>
+        </div>
+
+        <%-include("./partials/footer") %>
