@@ -1,7 +1,7 @@
 <nav
   class="block w-full px-10 py-4 mx-auto text-black bg-white border shadow-md border-b-gray-300 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200">
   <div class="flex items-center justify-between text-blue-gray-900">
-    <a href="#"
+    <a href="/"
       class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased">
       Medical Appointment
     </a>
@@ -12,24 +12,36 @@
             Home
           </a>
         </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-          <a href="/appointment" class="flex items-center transition-colors hover:text-blue-500">
-            Appointment
-          </a>
-        </li>
+
         <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
           <a href="/services" class="flex items-center transition-colors hover:text-blue-500">
             Services
           </a>
         </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+        <% if(user){%>
+          <% if(user.role == "user"){%>
+            <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+              <a href="/appointment" class="flex items-center transition-colors hover:text-blue-500">
+                Appointment Book
+              </a>
+            </li>
+         <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+           <a href="/profile" class="flex items-center transition-colors hover:text-blue-500">
+             Profile
+           </a>
+         </li>
+         <% }%>
+         <% if(user.role == "admin"){%>
+          <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+            <a href="/adminProfile" class="flex items-center transition-colors hover:text-blue-500">
+              Profile
+            </a>
+          </li>
+         <% }%>
+         <% }%>
+         <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
           <a href="/about" class="flex items-center transition-colors hover:text-blue-500">
             About Us
-          </a>
-        </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-          <a href="/profile" class="flex items-center transition-colors hover:text-blue-500">
-            Profile
           </a>
         </li>
       </ul>

@@ -1,0 +1,37 @@
+<%-include("./partials/header") %>
+<%-include("./partials/nav") %>
+
+<div class="w-full h-[100vh] flex  flex-col gap-10 items-center justify-start mt-10 bg-zink-800">
+  <h1 class="text-4xl font-semibold">All PATIANTS</h1>
+  <ol class="list-decimal w-[75vw] flex flex-col flex-wrap items-center gap-10 mt-5 bg-gray-200 px-10 py-10">
+    <% allUsers.forEach((user) => { %>
+      <% if (user.role == "user") { %>
+        <% user.appointments.forEach((app)=>{ %>
+          
+          <li class="w-full border-b border-gray-400 px-3 py-1">
+            <div class="flex">
+              <span class="w-[30%]"><%=app.fullname%></span>
+            <span class="w-[15%]"><%=app.age%></span>
+            <span class="w-[20%]"><%=app.aadhar%></span>
+            <span class="w-[20%]"><%= app.sedule.toString().slice(4, 16) %></span> 
+            <span class="w-[15%] flex justify-between">
+            <td>
+              <form class="flex gap-2" action="/updateAppointment" method="post">
+                <select class=" h-9 bg-transparent text-sm" name="status">
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+                <button class="text-white bg-blue-600 hover:bg-blue-700 px-2 rounded">Update</button>
+              </form>
+            </td> 
+            </div>
+          </li>
+        <% }) %>      
+        <% } %>
+        <% }); %>
+      </ol>
+</div>
+
+<%-include("./partials/footer") %>

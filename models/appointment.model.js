@@ -1,3 +1,4 @@
+const { type } = require("express/lib/response");
 const mongoose = require("mongoose");
 
 const appointmentModel = new mongoose.Schema({
@@ -7,7 +8,10 @@ const appointmentModel = new mongoose.Schema({
     gender: String,
     phone: String,
     aadhar: String,
-    sedule:String, 
+    sedule:{
+        type:Date,
+        require: true,
+    }, 
 
     created_by:{
         type:mongoose.Schema.Types.ObjectId,
@@ -16,8 +20,7 @@ const appointmentModel = new mongoose.Schema({
     
     status:{
         type:String,
-        enum:["waiting", "booked", "progress", "complited"],
-        default: "waiting"
+        enum:["panding", "approved", "rejected", "cancelled"],
     },
 
 },{timestamps:true})

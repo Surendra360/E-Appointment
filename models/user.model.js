@@ -10,7 +10,7 @@ const userModel = new mongoose.Schema({
     role:{
         type:String,
         enum:["admin","user"],
-        default:"user",
+        require: true,
     },
     appointments:[{
         type:mongoose.Schema.Types.ObjectId,

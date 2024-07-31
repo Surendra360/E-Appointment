@@ -21,6 +21,13 @@ router.get("/login", function (req, res, next) {
   res.render("login", {user: req.user});
 });
 
+//logout
+router.get("/logout",islogin, (req, res, next)=> {
+  req.logout(()=>{
+    res.redirect("/");
+  });
+});
+
 router.get("/profile", islogin, async function (req, res, next) {
   // const user = await userModel.findById();
   // console.log(user);
@@ -51,6 +58,21 @@ router.get("/allApointments", islogin, async (req,res,next)=>{
   res.render("allApointments", {user: req.user, allApointments});
 })
 
+router.get("/adminProfile", async (req,res,next)=>{
+  res.render("adminProfile", {user:req.user});
+})
+router.get("/adminAllUser", islogin, async(req,res,nexr)=>{
+  try {
+    const Users = await userModel.find().populate("appointments");
+    res.render("adminAllUser", {allUsers:Users, user:req.user});
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+
+
+
 
 
 
@@ -60,8 +82,8 @@ router.get("/allApointments", islogin, async (req,res,next)=>{
 
 router.post("/register", async (req, res, next) => {
   try {
-    const { fullname, username, email, phone, password } = req.body;
-    await userModel.register({ fullname, username, email, phone }, password);
+    const { fullname, username, email, phone, password, role } = req.body;
+    await userModel.register({ fullname, username, email, phone, role }, password);
     res.redirect("/login");
   } catch (error) {
     res.send(error.message);
@@ -71,17 +93,29 @@ router.post("/register", async (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/profile",
-    failureRedirect: "/profile",
+    failureRedirect: "/login",
   }),
-  (req, res, next) => {}
+  (req, res, next) => {
+    if(req.user.role == "admin"){
+      res.redirect("/adminProfile");
+    }else{
+      res.redirect("/profile");
+    }
+  }
 );
 
 router.post("/update", async(req,res,next)=>{
   try {
     // const { fullname, username, email, phone, password } = req.body;
+    const user = req.user;
     await userModel.findByIdAndUpdate(req.user._id, { ...req.body });
-    res.redirect("/profile");
+    if(user){
+      if(user.role == "admin"){
+        res.redirect("/adminProfile");
+      }else{
+        res.redirect("/profile");
+      }
+    }
     
   } catch (error) {
     console.log(error.message);
@@ -100,6 +134,7 @@ router.post("/appointment", islogin,async (req,res,next)=>{
         phone: req.body.phone,
         aadhar: req.body.aadhar,
         sedule:req.body.sedule,
+        status:"panding",
         created_by: req.user._id
       })
       
@@ -115,5 +150,16 @@ router.post("/appointment", islogin,async (req,res,next)=>{
       console.log(error.message);
     }
 })
+
+router.post("/updateAppointment", islogin, async(req,res,next)=>{
+  try {
+    const status = req.body.status;
+    await appointmentModel.findByIdAndUpdate(req.params._id,{status});
+    res.redirect("/adminAllUser")
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 
 module.exports = router;
