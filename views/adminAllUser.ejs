@@ -16,9 +16,9 @@
             <span class="w-[20%]"><%= app.sedule.toString().slice(4, 16) %></span> 
             <span class="w-[15%] flex justify-between">
             <td>
-              <form class="flex gap-2" action="/updateAppointment" method="post">
+              <form class="flex gap-2" action="/updateAppointment/<%=app._id%>" method="post">
                 <select class=" h-9 bg-transparent text-sm" name="status">
-                  <option value="pending">Pending</option>
+                  <option value="<%=app.status%>">Pending</option>
                   <option value="approved">Approved</option>
                   <option value="rejected">Rejected</option>
                   <option value="cancelled">Cancelled</option>

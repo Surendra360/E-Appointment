@@ -125,7 +125,7 @@ router.post("/update", async(req,res,next)=>{
 
 router.post("/appointment", islogin,async (req,res,next)=>{
     try {
-
+      const user = await userModel.findOne({username:req.session.passport.user})
       const newAppointment = await appointmentModel({
         fullname: req.body.fullname,
         age: req.body.age,
@@ -134,15 +134,15 @@ router.post("/appointment", islogin,async (req,res,next)=>{
         phone: req.body.phone,
         aadhar: req.body.aadhar,
         sedule:req.body.sedule,
-        status:"panding",
+        status:req.body.status,
         created_by: req.user._id
       })
       
-      await req.user.appointments.push(newAppointment._id);
+      await user.appointments.push(newAppointment._id);
 
       await newAppointment.save();
-      await req.user.save();
-
+      await user.save();
+      console.log(user);
       res.redirect("/allApointments");
       console.log("appointment booked");
       
@@ -151,10 +151,12 @@ router.post("/appointment", islogin,async (req,res,next)=>{
     }
 })
 
-router.post("/updateAppointment", islogin, async(req,res,next)=>{
+router.post("/updateAppointment/:id", islogin, async(req,res,next)=>{
+  console.log(req.body);
   try {
     const status = req.body.status;
-    await appointmentModel.findByIdAndUpdate(req.params._id,{status});
+    let response = await appointmentModel.findByIdAndUpdate(req.params.id,{status},{new:true});
+    console.log(response);
     res.redirect("/adminAllUser")
   } catch (error) {
     console.log(error);

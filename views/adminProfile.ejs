@@ -4,9 +4,8 @@
         <div class="w-full h-[100vh] flex flex-col gap-10 items-center justify-top my-10 bg-zink-800">
             <h1 class="text-4xl font-semibold">ADMIN PROFILE</h1>
             <div class="flex flex-col gap-3 justify-center ">
-                <span class="text-5xl font-semibold text-purple-500 border border-gray-400 py-2 my-5 px-10 bg-gray-300 shadow-md">👋 Hello, <span class="text-black ">ADMIN</span></span> 
+                <span class="text-5xl font-semibold text-purple-500 border border-gray-400 py-2 my-5 px-10 bg-gray-300 shadow-md">👋 Hello, <span class="text-black "><%=user.fullname%></span></span> 
                 <h1 class="text-4xl my-5"> Following is your detailes</h1>
-                <a href="/adminAllUser">View All Patients</a>
                 <h1 class="text-2xl mb-2 border px-4 py-1">Fullname: <%=user.fullname%></h1>
                 <h1 class="text-2xl mb-2 border px-4 py-1">Username: <%=user.username%></h1>
                 <h1 class="text-2xl mb-2 border px-4 py-1">Email: <%=user.email%></h1>
@@ -14,8 +13,8 @@
             </div>
             
             <div class="flex gap-6">
-                <a href="/update/<%=user._id%>"><button class="px-3 py-1 border border-gray-400 rounded font-semibold hover:px-4 hover:py-2 hover:text-2xl hover:bg-blue-500 hover:text-white duration-500 hover:shadow-xl">Update</button></a>
-                <a href="/delete/<%=user._id%>"><button class="px-3 py-1 border border-gray-400 rounded font-semibold hover:px-4 hover:py-2 hover:text-2xl hover:bg-red-500 hover:text-white duration-500 hover:shadow-xl">Delete</button></a>
+                <a href="/update/<%=user._id%>"><button class="px-3 py-1 border border-gray-400 rounded font-semibold hover:bg-blue-500 hover:text-white duration-500 hover:shadow-xl">Update</button></a>
+                <a href="/delete/<%=user._id%>"><button class="px-3 py-1 border border-gray-400 rounded font-semibold hover:bg-red-500 hover:text-white duration-500 hover:shadow-xl">Delete</button></a>
             </div>
             <a class="text-xl text-purple-500 px-3 py-1 border-gray-400 border rounded" href="/logout">Logout</a>
 
