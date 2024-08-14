@@ -1,12 +1,132 @@
-<%-include("./partials/header") %>
-<%-include("./partials/nav") %>
+<%-include("./partials/header") %> <%-include("./partials/nav") %>
 
-<div class="w-full h-[100vh] flex flex-col gap-10 items-center justify-center bg-zink-800">
-  <h1 class="text-4xl font-semibold">HOME PAGE</h1>
-  <p class="w-[50vw] text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aperiam ducimus quis, corporis quaerat sunt cumque aspernatur qui? Recusandae minima doloremque ab itaque perferendis earum architecto molestias cupiditate omnis aliquid?</p>
-  <div class="flex items-center justify-center gap-10">
-    <a href="/register"><button class="px-4 py-2 border shadow-md border-gray-400 rounded hover:bg-blue-500 hover:text-white font-semibold ">Register</button></a>
-    <a href="/Login"><button class="px-4 py-2 border shadow-md border-gray-400 rounded hover:bg-blue-500 hover:text-white font-semibold ">Login</button></a>
+<div
+  class="w-full max-sm:h-[120vh] h-[90vh] flex flex-col justify-center items-center gap-10 bg-[url('/images/background.jpg')] bg-cover bg-no-repeat"
+>
+  <div class="w-[80vw] ">
+    <span
+      class="text-blue-500 text-2xl font-semibold px-3 py-1 bg-white rounded-full"
+      >- Committed To Success</span
+    >
+    <h1 class="text-7xl font-bold py-10">
+      WE CARE ABOUTE <br />
+      YOUR <span class="text-blue-500">HELTH</span>
+    </h1>
+    <p class="w-[70vw] text-xl">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br />
+      Commodi error quo quas laboriosam rerum saepe ab, provident odio labore
+      ut.
+    </p>
+    <a href="/adminAllUser"
+      ><button
+        class="px-8 py-3 text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded mt-10 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 duration-500"
+      >
+        Appointment ->
+      </button></a
+    >
+  </div>
+</div>
+<div
+  class="relative z-10 w-full flex flex-col items-center justify-center"
+>
+  <!--  -->
+  <div
+    class="md:absolute -top-20 md:w-[80vw] w-full md:h-[30vw] gap-10 md:gap-0 flex flex-col md:flex-row items-center justify-between"
+  >
+    <!--  -->
+    <div
+      class="w-[70vw] md:w-[23vw] rounded-lg border-2 border-blue-600 md:h-[30vw] h-[80vw] overflow-hidden bg-white"
+    >
+      <div class="w-full md:h-[18vw] h-[45vw] overflow-hidden">
+        <img
+          class="w-full hover:scale-[1.3] duration-500"
+          src="/images/24x7.jpg"
+          alt=""
+        />
+      </div>
+      <div class="px-3">
+        <h1
+          class="md:text-[2vw] text-xl font-semibold text-blue-500 border-b-2 w-[max-content] border-blue-500 mt-3"
+        >
+          24x7 Avilable
+        </h1>
+        <p class="md:text-[1vw] text-sm mt-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quod
+          sunt quisquam perspiciatis architecto ab, omnis harum ex in ipsam
+          quasi dolore ratione mollitia.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[70vw] md:w-[23vw] rounded-lg border-2 border-blue-600 md:h-[30vw] h-[80vw] overflow-hidden bg-white"
+    >
+      <div class="w-full md:h-[18vw] h-[45vw] overflow-hidden">
+        <img
+          class="w-full hover:scale-[1.3] h-full object-cover duration-500"
+          src="/images/team.avif"
+          alt=""
+        />
+      </div>
+      <div class="px-3">
+        <h1
+          class="md:text-[2vw] text-xl font-semibold text-blue-500 border-b-2 w-[max-content] border-blue-500 mt-3"
+        >
+          Our Team is Rady
+        </h1>
+        <p class="md:text-[1vw] text-sm mt-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quod
+          sunt quisquam perspiciatis architecto ab, omnis harum ex in ipsam
+          quasi dolore ratione mollitia.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[70vw] md:w-[23vw] rounded-lg border-2 border-blue-600 md:h-[30vw] h-[80vw] overflow-hidden bg-white"
+    >
+      <div class="w-full md:h-[18vw] h-[45vw] overflow-hidden">
+        <img
+          class="w-full hover:scale-[1.3] h-full object-cover duration-500"
+          src="/images/services.avif"
+          alt=""
+        />
+      </div>
+      <div class="px-3">
+        <h1
+          class="md:text-[2vw] text-xl font-semibold text-blue-500 border-b-2 w-[max-content] border-blue-500 mt-3"
+        >
+          Comfortable
+        </h1>
+        <p class="md:text-[1vw] text-sm mt-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quod
+          sunt quisquam perspiciatis architecto ab, omnis harum ex in ipsam
+          quasi dolore ratione mollitia.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-full mt-[30vw] bg-[url('/images/flag.png')] bg-cover bg-no-repeat bg-bottom py-10 relative z-10"
+  >
+    <div class="w-full h-full bg-gray-500/50 -z-10 absolute top-0 left-0"></div>
+    <h1 class="text-5xl pb-10 text-center text-white font-semibold">
+      Welcome to Digital Hoshpital
+    </h1>
+    <div class="flex items-center justify-center gap-10 text-xl">
+      <a href="/register"
+        ><button
+          class="w-28 px-4 py-2 border border-white shadow-md hover:bg-white hover:text-blue-500 rounded bg-blue-500 text-white font-semibold"
+        >
+          Register
+        </button></a
+      >
+      <a href="/Login"
+        ><button
+          class="w-28 px-4 py-2 border shadow-md border-white rounded hover:bg-blue-500 hover:text-white text-blue-500 bg-white font-semibold"
+        >
+          Login
+        </button></a
+      >
+    </div>
   </div>
 </div>
 
