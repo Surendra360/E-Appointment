@@ -5,6 +5,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const { islogin } = require("../middleware/islogin");
 const appointmentModel = require("../models/appointment.model");
+const { sendMail } = require("../utils/sendMail");
 
 passport.use(new LocalStrategy(userModel.authenticate()));
 
@@ -69,6 +70,17 @@ router.get("/adminAllUser", islogin, async(req,res,nexr)=>{
     console.log(error);
   }
 })
+
+router.get("/about", async(req,res,next)=>{
+  res.render("about", {user:req.user});
+})
+router.get("/services", async(req,res,next)=>{
+  res.render("services", {user:req.user});
+})
+
+
+
+
 
 
 
@@ -161,6 +173,10 @@ router.post("/updateAppointment/:id", islogin, async(req,res,next)=>{
   } catch (error) {
     console.log(error);
   }
+})
+
+router.post("/sendMail", function(req,res){
+  sendMail(req,res)
 })
 
 

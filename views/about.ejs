@@ -1,0 +1,44 @@
+<%-include("./partials/header") %>
+<%-include("./partials/nav") %>
+
+<div class="w-full flex flex-col gap-10 items-center py-10 bg-zink-800 px-30">
+  <h1 class="text-4xl border-b border-black py-3 font-semibold">ABOUT US</h1>
+  <div class="w-[80vw] md:flex">
+    <div class="md:w-full md:h-[30vw] h-[45vw] overflow-hidden rounded ">
+      <img
+        class="w-full hover:scale-[1.3] h-full object-cover duration-500"
+        src="/images/team.avif"
+        alt=""
+      />
+    </div>
+    <p class="w-full px-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni ex dolorum accusantium vitae itaque nemo quod libero veniam consequuntur commodi. Odio nostrum deleniti laboriosam obcaecati eveniet vero amet ratione ut, modi officiis. Fuga ducimus, rem culpa necessitatibus sed corrupti omnis autem perspiciatis iusto tempore cum, placeat eos explicabo saepe repellendus. Recusandae dolorem nesciunt repellendus veritatis tempora omnis dolore provident? Facilis tenetur ad laboriosam. Similique ducimus ea beatae animi tenetur, dolores aliquid vero.</p>
+  </div>
+
+  <div>
+    <h1 class="text-4xl border-b border-black py-3 font-semibold text-center">CONTECT US</h1>
+    <form action="/sendMail" method="post">
+
+      <div class="md:w-[30vw] bg-white py-6 rounded-md px-10 shadow-md">
+          <div class="space-y-4 mt-6">
+              <div class="w-full flex">
+                  <input name="name" type="text" placeholder="fullname"
+                      class="w-full px-4 py-2 bg-gray-50" />
+              </div>
+              <div class="w-full">
+                  <input name="email" type="text" placeholder="email"
+                      class="w-full px-4 py-2 bg-gray-50" />
+              </div>
+              <div class="w-full">
+                  <textarea name="text" id="" placeholder="Write Your quiry...." class="w-full px-4 py-2 bg-gray-50"></textarea>
+              </div>
+            
+          </div>
+          <button class="w-full mt-5 bg-indigo-600 text-white py-2 rounded-md font-semibold tracking-tight mb-3">Send</button>
+      </div>
+
+    </form>
+  </div>
+  
+</div>
+
+<%-include("./partials/footer") %>

@@ -17,13 +17,26 @@
       Commodi error quo quas laboriosam rerum saepe ab, provident odio labore
       ut.
     </p>
-    <a href="/adminAllUser"
+    <% if(user){%>
+      <% if(user.role == "admin"){%>
+        <a href="/adminAllUser"
       ><button
         class="px-8 py-3 text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded mt-10 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 duration-500"
       >
         Appointment ->
       </button></a
     >
+      <%}else{%>
+        <a href="/appointment"
+      ><button
+        class="px-8 py-3 text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded mt-10 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 duration-500"
+      >
+        Appointment ->
+      </button></a
+    >
+        <%}%>
+    <%}%>
+    
   </div>
 </div>
 <div
