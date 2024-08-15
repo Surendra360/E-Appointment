@@ -50,7 +50,9 @@ router.get("/update/:id",islogin, async (req, res, next) => {
   res.render("update", {currentUser, user:req.user});
 });
 
-router.get("/appointment", islogin, (req,res,next)=>{
+router.get("/appointment", islogin, async (req,res,next)=>{
+  // const userAppoint = await userModel.findById(req.params.id);
+  
   res.render("appointment", {user: req.user});
 })
 
